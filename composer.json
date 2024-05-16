@@ -1,0 +1,7 @@
+{
+    "name": "audrey/8809amigos",
+    "description": "A rental application form that integrates with Stripe for payments and AWS S3 for storage.",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {}
+}
