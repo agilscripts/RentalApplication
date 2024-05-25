@@ -6,27 +6,28 @@ use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 use Stripe\Stripe;
 
-// Configure AWS
+// Configure AWS S3
 $s3Client = new S3Client([
-    'region'  => 'your-region', // e.g., 'us-west-2'
+    'region'  => 'us-west-1', // Your AWS region
     'version' => 'latest',
     'credentials' => [
-        'key'    => 'your-access-key',
-        'secret' => 'your-secret-key',
+        'key'    => getenv('AWS_ACCESS_KEY_ID'), // Use environment variables for security
+        'secret' => getenv('AWS_SECRET_ACCESS_KEY'), // Use environment variables for security
     ],
 ]);
 
+// Configure AWS SES
 $sesClient = new SesClient([
-    'region'  => 'your-region', // e.g., 'us-west-2'
+    'region'  => 'us-west-1', // Your AWS region
     'version' => 'latest',
     'credentials' => [
-        'key'    => 'your-access-key',
-        'secret' => 'your-secret-key',
+        'key'    => getenv('AWS_ACCESS_KEY_ID'), // Use environment variables for security
+        'secret' => getenv('AWS_SECRET_ACCESS_KEY'), // Use environment variables for security
     ],
 ]);
 
 // Configure Stripe
-Stripe::setApiKey('secret-key'); // Replace with your Stripe secret key
+Stripe::setApiKey(getenv('STRIPE_SECRET_KEY')); // Replace with your Stripe secret key
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -35,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $paymentIntent = \Stripe\PaymentIntent::create([
-            'amount' => $totalFee * 100,
+            'amount' => $totalFee * 100, // Convert dollars to cents
             'currency' => 'usd',
             'payment_method' => $paymentMethodId,
             'confirmation_method' => 'manual',
@@ -83,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Save the application data to S3
             $result = $s3Client->putObject([
-                'Bucket' => 'your-s3-bucket-name', // Replace with your bucket name
+                'Bucket' => 'riverside-rental-applications', // Your S3 bucket name
                 'Key' => 'applications/' . uniqid() . '.json',
                 'Body' => $applicationJson,
                 'ACL' => 'private'

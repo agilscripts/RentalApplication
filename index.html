@@ -69,6 +69,7 @@
         <!-- Bootstrap Carousel -->
         <div id="houseCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+                <!-- Carousel items go here -->
                 <div class="carousel-item active">
                     <img src="static/1.jpg" class="d-block w-100" alt="House photo 1">
                 </div>
@@ -140,199 +141,223 @@
             </a>
         </div>
         <p>Welcome to the rental application for 8809 Amigos Pl, Riverside, CA. Please fill out the following form with accurate and complete information. Note that all individuals over the age of 18 must be included on this application as an adult.</p>
+
+        <!-- Application Form -->
         <form id="rentalForm" action="process_application.php" method="post" enctype="multipart/form-data">
-            <div id="adultsSection">
-                <!-- Initial adult form section -->
-                <div class="adult" data-index="1">
-                    <h2>Personal Information (Adult 1)</h2>
-                    <fieldset>
-                        <legend>Personal Information</legend>
-                        <label for="full_name_1">Full Name:</label>
-                        <input type="text" id="full_name_1" name="full_name[]" required>
-                        
-                        <label for="email_1">Email:</label>
-                        <input type="email" id="email_1" name="email[]" pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="Please enter a valid email address." required>
-                        
-                        <label for="phone_1">Phone Number:</label>
-                        <input type="tel" id="phone_1" name="phone[]" required>
-                        
-                        <label for="dob_1">Date of Birth:</label>
-                        <input type="date" id="dob_1" name="dob[]" required>
-                        
-                        <label for="ssn_itin_1">Social Security Number (SSN) or Individual Taxpayer Identification Number (ITIN):</label>
-                        <input type="text" id="ssn_itin_1" name="ssn_itin[]" required>
-                        
-                        <label for="drivers_license_1">Driver's License Number:</label>
-                        <input type="text" id="drivers_license_1" name="drivers_license[]">
-                        
-                        <label for="id_photo_1">Upload a Photo of Your ID (Driver's license, Passport, or any form of ID, showing the front):</label>
-                        <input type="file" id="id_photo_1" name="id_photo[]" accept="image/*" required>
-                    </fieldset>
+            <!-- Existing form content -->
+            <div id="onlineApplicationSection">
+                <div id="adultsSection">
+                    <!-- Initial adult form section -->
+                    <div class="adult" data-index="1">
+                        <h2>Personal Information (Adult 1)</h2>
+                        <fieldset>
+                            <legend>Personal Information</legend>
+                            <label for="full_name_1">Full Name:</label>
+                            <input type="text" id="full_name_1" name="full_name[]" required>
+                            
+                            <label for="email_1">Email:</label>
+                            <input type="email" id="email_1" name="email[]" pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="Please enter a valid email address." required>
+                            
+                            <label for="phone_1">Phone Number:</label>
+                            <input type="tel" id="phone_1" name="phone[]" required>
+                            
+                            <label for="dob_1">Date of Birth:</label>
+                            <input type="date" id="dob_1" name="dob[]" required>
+                            
+                            <label for="ssn_itin_1">Social Security Number (SSN) or Individual Taxpayer Identification Number (ITIN):</label>
+                            <input type="text" id="ssn_itin_1" name="ssn_itin[]" required>
+                            
+                            <label for="drivers_license_1">Driver's License Number:</label>
+                            <input type="text" id="drivers_license_1" name="drivers_license[]">
+                            
+                            <label for="id_photo_1">Upload a Photo of Your ID (Driver's license, Passport, or any form of ID, showing the front):</label>
+                            <input type="file" id="id_photo_1" name="id_photo[]" accept="image/*" required>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Current Residence</legend>
-                        <label for="current_address_1">Current Address:</label>
-                        <input type="text" id="current_address_1" name="current_address[]" required>
-                        
-                        <label for="current_rent_1">Current Rent Amount:</label>
-                        <input type="number" id="current_rent_1" name="current_rent[]" required>
-                        
-                        <label for="current_landlord_1">Current Landlord's Name:</label>
-                        <input type="text" id="current_landlord_1" name="current_landlord[]" required>
-                        
-                        <label for="landlord_phone_1">Current Landlord's Phone:</label>
-                        <input type="tel" id="landlord_phone_1" name="landlord_phone[]" required>
-                        
-                        <label for="reason_for_leaving_1">Reason for Leaving:</label>
-                        <textarea id="reason_for_leaving_1" name="reason_for_leaving[]" required></textarea>
-                    </fieldset>
+                        <fieldset>
+                            <legend>Current Residence</legend>
+                            <label for="current_address_1">Current Address:</label>
+                            <input type="text" id="current_address_1" name="current_address[]" required>
+                            
+                            <label for="current_rent_1">Current Rent Amount:</label>
+                            <input type="number" id="current_rent_1" name="current_rent[]" required>
+                            
+                            <label for="current_landlord_1">Current Landlord's Name:</label>
+                            <input type="text" id="current_landlord_1" name="current_landlord[]" required>
+                            
+                            <label for="landlord_phone_1">Current Landlord's Phone:</label>
+                            <input type="tel" id="landlord_phone_1" name="landlord_phone[]" required>
+                            
+                            <label for="reason_for_leaving_1">Reason for Leaving:</label>
+                            <textarea id="reason_for_leaving_1" name="reason_for_leaving[]" required></textarea>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Employment Information</legend>
-                        <label for="employed_1">Are you currently employed?</label>
-                        <select id="employed_1" name="employed[]" onchange="toggleEmploymentFields(this)">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
+                        <fieldset>
+                            <legend>Employment Information</legend>
+                            <label for="employed_1">Are you currently employed?</label>
+                            <select id="employed_1" name="employed[]" onchange="toggleEmploymentFields(this)">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
 
-                        <div class="employment-fields conditional-section">
-                            <label for="employer_1">Employer:</label>
-                            <input type="text" id="employer_1" name="employer[]">
-                            
-                            <label for="employer_address_1">Employer Address:</label>
-                            <input type="text" id="employer_address_1" name="employer_address[]">
-                            
-                            <label for="position_1">Position:</label>
-                            <input type="text" id="position_1" name="position[]">
-                            
-                            <label for="salary_1">Monthly Salary:</label>
-                            <input type="number" id="salary_1" name="salary[]">
-                            
-                            <label for="employment_duration_1">Duration of Employment:</label>
-                            <input type="text" id="employment_duration_1" name="employment_duration[]">
-                            
-                            <label for="supervisor_name_1">Supervisor's Name:</label>
-                            <input type="text" id="supervisor_name_1" name="supervisor_name[]">
-                            
-                            <label for="supervisor_phone_1">Supervisor's Phone:</label>
-                            <input type="tel" id="supervisor_phone_1" name="supervisor_phone[]">
-                        </div>
-                    </fieldset>
+                            <div class="employment-fields conditional-section">
+                                <label for="employer_1">Employer:</label>
+                                <input type="text" id="employer_1" name="employer[]">
+                                
+                                <label for="employer_address_1">Employer Address:</label>
+                                <input type="text" id="employer_address_1" name="employer_address[]">
+                                
+                                <label for="position_1">Position:</label>
+                                <input type="text" id="position_1" name="position[]">
+                                
+                                <label for="salary_1">Monthly Salary:</label>
+                                <input type="number" id="salary_1" name="salary[]">
+                                
+                                <label for="employment_duration_1">Duration of Employment:</label>
+                                <input type="text" id="employment_duration_1" name="employment_duration[]">
+                                
+                                <label for="supervisor_name_1">Supervisor's Name:</label>
+                                <input type="text" id="supervisor_name_1" name="supervisor_name[]">
+                                
+                                <label for="supervisor_phone_1">Supervisor's Phone:</label>
+                                <input type="tel" id="supervisor_phone_1" name="supervisor_phone[]">
+                            </div>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Section 8 Housing Voucher</legend>
-                        <label for="section8_1">Do you have a Section 8 Housing Voucher?</label>
-                        <select id="section8_1" name="section8[]" onchange="toggleSection8Fields(this)">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
+                        <fieldset>
+                            <legend>Section 8 Housing Voucher</legend>
+                            <label for="section8_1">Do you have a Section 8 Housing Voucher?</label>
+                            <select id="section8_1" name="section8[]" onchange="toggleSection8Fields(this)">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
 
-                        <div class="section8-fields conditional-section">
-                            <label for="voucher_amount_1">Voucher Amount:</label>
-                            <input type="number" id="voucher_amount_1" name="voucher_amount[]">
+                            <div class="section8-fields conditional-section">
+                                <label for="voucher_amount_1">Voucher Amount:</label>
+                                <input type="number" id="voucher_amount_1" name="voucher_amount[]">
+                                
+                                <label for="voucher_case_worker_1">Case Worker’s Name:</label>
+                                <input type="text" id="voucher_case_worker_1" name="voucher_case_worker[]">
+                                
+                                <label for="case_worker_phone_1">Case Worker’s Phone:</label>
+                                <input type="tel" id="case_worker_phone_1" name="case_worker_phone[]">
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Legal and Background Information</legend>
+                            <label for="eviction_history_1">Have you ever been evicted?</label>
+                            <select id="eviction_history_1" name="eviction_history[]" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
                             
-                            <label for="voucher_case_worker_1">Case Worker’s Name:</label>
-                            <input type="text" id="voucher_case_worker_1" name="voucher_case_worker[]">
+                            <label for="bankruptcy_history_1">Have you ever filed for bankruptcy?</label>
+                            <select id="bankruptcy_history_1" name="bankruptcy_history[]" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
                             
-                            <label for="case_worker_phone_1">Case Worker’s Phone:</label>
-                            <input type="tel" id="case_worker_phone_1" name="case_worker_phone[]">
-                        </div>
-                    </fieldset>
+                            <label for="criminal_history_1">Do you have any criminal convictions?</label>
+                            <select id="criminal_history_1" name="criminal_history[]" required>
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                            
+                            <label for="additional_info_1">Additional Information:</label>
+                            <textarea id="additional_info_1" name="additional_info[]"></textarea>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Legal and Background Information</legend>
-                        <label for="eviction_history_1">Have you ever been evicted?</label>
-                        <select id="eviction_history_1" name="eviction_history[]" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                        
-                        <label for="bankruptcy_history_1">Have you ever filed for bankruptcy?</label>
-                        <select id="bankruptcy_history_1" name="bankruptcy_history[]" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                        
-                        <label for="criminal_history_1">Do you have any criminal convictions?</label>
-                        <select id="criminal_history_1" name="criminal_history[]" required>
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                        
-                        <label for="additional_info_1">Additional Information:</label>
-                        <textarea id="additional_info_1" name="additional_info[]"></textarea>
-                    </fieldset>
-
-                    <button type="button" class="remove-button" onclick="removeAdult(this)">Remove This Adult</button>
+                        <button type="button" class="remove-button" onclick="removeAdult(this)">Remove This Adult</button>
+                    </div>
                 </div>
-            </div>
 
-            <button type="button" id="addAdultButton">Add Another Adult</button>
+                <button type="button" id="addAdultButton">Add Another Adult</button>
 
-            <!-- Minors Section: Ask about minors in the household -->
-            <fieldset>
-                <legend>Minors</legend>
-                <label for="minors">Will there be any minors (under 18) staying at the residence?</label>
-                <select id="minors" name="minors" class="form-control" required onchange="toggleMinorDetails(this)">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
-                </select>
+                <!-- Minors Section: Ask about minors in the household -->
+                <fieldset>
+                    <legend>Minors</legend>
+                    <label for="minors">Will there be any minors (under 18) staying at the residence?</label>
+                    <select id="minors" name="minors" class="form-control" required onchange="toggleMinorDetails(this)">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                    
+                    <div id="minorDetails" class="conditional-section">
+                        <label for="minor_names_ages">Please provide the names and ages of the minors:</label>
+                        <textarea id="minor_names_ages" name="minor_names_ages" class="form-control"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Pets Section: Universal for the household -->
+                <fieldset>
+                    <legend>Pets</legend>
+                    <label for="pets">Do you have any pets?</label>
+                    <select id="pets" name="pets" class="form-control" required onchange="togglePetDetails(this)">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                    
+                    <div id="petDetails" class="conditional-section">
+                        <label for="pet_details">If yes, please provide details:</label>
+                        <textarea id="pet_details" name="pet_details" class="form-control"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Proof of Income</legend>
+                    <label for="proof_of_income">Upload Proof of Income (last 2-3 months of pay stubs):</label>
+                    <input type="file" id="proof_of_income" name="proof_of_income[]" multiple>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Bank Statements</legend>
+                    <label for="bank_statements">Upload Bank Statements (last 2-3 months):</label>
+                    <input type="file" id="bank_statements" name="bank_statements[]" multiple>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Other Documents</legend>
+                    <label for="other_documents">Upload Other Documents (Payment Proof, etc.):</label>
+                    <input type="file" id="other_documents" name="other_documents[]" multiple>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Agreement and Authorization</legend>
+                    <p>The rental price starts at $2,800. If you are applying with a Section 8 voucher, the rental price will be adjusted based on the voucher amount and local payment standards as determined by the Public Housing Authority. Your portion of the rent will be determined accordingly.</p>
+                    <p>By submitting this application, I certify that all information is true and correct. I authorize the landlord to verify the information provided, including running a credit report and background check. I understand that a non-refundable fee may be required for these checks.</p>
+                    <label for="signature">Signature:</label>
+                    <input type="text" id="signature" name="signature" required>
+                    
+                    <label for="application_date">Date:</label>
+                    <input type="date" id="application_date" name="application_date" required>
+                </fieldset>
                 
-                <div id="minorDetails" class="conditional-section">
-                    <label for="minor_names_ages">Please provide the names and ages of the minors:</label>
-                    <textarea id="minor_names_ages" name="minor_names_ages" class="form-control"></textarea>
+                <div id="feeSummary">
+                    <p>Total Application Fee: $<span id="totalFee">0.10</span></p>
                 </div>
-            </fieldset>
 
-            <!-- Pets Section: Universal for the household -->
-            <fieldset>
-                <legend>Pets</legend>
-                <label for="pets">Do you have any pets?</label>
-                <select id="pets" name="pets" class="form-control" required onchange="togglePetDetails(this)">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
-                </select>
-                
-                <div id="petDetails" class="conditional-section">
-                    <label for="pet_details">If yes, please provide details:</label>
-                    <textarea id="pet_details" name="pet_details" class="form-control"></textarea>
+                <div id="card-element">
+                    <!-- Stripe Elements will be inserted here -->
                 </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Agreement and Authorization</legend>
-                <p>The rental price starts at $2,800. If you are applying with a Section 8 voucher, the rental price will be adjusted based on the voucher amount and local payment standards as determined by the Public Housing Authority. Your portion of the rent will be determined accordingly.</p>
-                <p>By submitting this application, I certify that all information is true and correct. I authorize the landlord to verify the information provided, including running a credit report and background check. I understand that a non-refundable fee may be required for these checks.</p>
-                <label for="signature">Signature:</label>
-                <input type="text" id="signature" name="signature" required>
+                <div id="card-errors" role="alert"></div>
                 
-                <label for="application_date">Date:</label>
-                <input type="date" id="application_date" name="application_date" required>
-            </fieldset>
-            
-            <div id="feeSummary">
-                <p>Total Application Fee: $<span id="totalFee">50</span></p>
+                <button type="submit">Submit Application</button>
             </div>
-
-            <div id="card-element">
-                <!-- Stripe Elements will be inserted here -->
-            </div>
-            <div id="card-errors" role="alert"></div>
-            
-            <button type="submit">Submit Application</button>
         </form>
     </div>
 
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        const stripe = Stripe('X'); // Replace with your actual Stripe public key
+        const stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY'); // Replace with your actual Stripe public key
         const elements = stripe.elements();
+
+        // Create and mount card element for online section
         const cardElement = elements.create('card');
         cardElement.mount('#card-element');
 
         let adultCount = 1;
-        const feePerAdult = 50;
-
+        const feePerAdult = 0.10;
         document.getElementById('addAdultButton').addEventListener('click', function() {
             adultCount++;
             const newAdultSection = document.createElement('div');
@@ -532,15 +557,16 @@
                         additional_info: form.additional_info.value,
                         signature: form.signature.value,
                         application_date: form.application_date.value,
+                        proof_of_income: form.proof_of_income.files,
+                        bank_statements: form.bank_statements.files,
+                        other_documents: form.other_documents.files,
                         totalFee: document.getElementById('totalFee').innerText
                     })
                 }).then(response => response.json())
                   .then(result => {
                       if (result.success) {
-                          // Handle successful form submission
                           alert('Application submitted successfully!');
                       } else {
-                          // Handle form submission errors
                           alert('Error submitting application.');
                       }
                   });
